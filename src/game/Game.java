@@ -19,7 +19,8 @@ public class Game {
             if (diveThrow == player) {
                 win = true;
                 System.out.println("Zgadłeś!");
-            } else {
+            } 
+            else {
 
                 System.out.println("Nie zgadłeś!");
             }
