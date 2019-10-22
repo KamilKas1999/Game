@@ -5,12 +5,13 @@ public class Game {
 
     public static void main(String[] args) {
 
-        Player player = new Player();
+        Player player = new Player("Bezimienny");
         Random dice = new Random();
         int diveThrow, playerGuess;
         boolean win = false;
 
-        player.setName(null);
+        player.setName("Kamil");
+
         do {
 
             diveThrow = dice.nextInt(6) + 1;
@@ -23,7 +24,6 @@ public class Game {
                 win = true;
                 System.out.println("Zgadłeś!");
             } else {
-
                 System.out.println("Nie zgadłeś!");
             }
 
