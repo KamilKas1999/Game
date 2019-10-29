@@ -5,10 +5,12 @@ public class Game {
 
     public static void main(String[] args) {
 
-        Player player = new Player("Bezimienny");
+        Player player;
+
+        player = new PlayerComputer();
+
         Random dice = new Random();
         int diveThrow, playerGuess;
-        boolean win = false;
 
         player.setName("Kamil");
 
@@ -20,15 +22,13 @@ public class Game {
 
             System.out.println("Wylosowana liczba: " + diveThrow + " Liczba gracza " + player.getName() + ": " + playerGuess);
 
-            if (diveThrow == playerGuess) {
-                win = true;
-                System.out.println("Zgadłeś!");
-            } else {
+            if (diveThrow != playerGuess) {
                 System.out.println("Nie zgadłeś!");
             }
 
-        } while (win == false);
+        } while (diveThrow != playerGuess);
 
+        System.out.println("Zgadłeś!");
     }
 
 }

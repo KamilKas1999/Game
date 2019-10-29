@@ -1,9 +1,9 @@
 
-import java.util.Random;
+import java.util.Scanner;
 
-public class Player {
+public abstract class Player {
 
-    private Random dice = new Random();
+    Scanner scanner = new Scanner(System.in);
 
     private String name;
 
@@ -12,7 +12,7 @@ public class Player {
     }
 
     public Player() {
-        this.name ="Anonim";
+        this.name = "Anonim";
     }
 
     public void setName(String name) {
@@ -26,9 +26,7 @@ public class Player {
     public String getName() {
         return name;
     }
-
-    public int guess() {
-        return dice.nextInt(6) + 1;
-    }
+    
+    public abstract int guess();
 
 }
