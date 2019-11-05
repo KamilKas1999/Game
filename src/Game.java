@@ -6,14 +6,19 @@ public class Game {
     public static void main(String[] args) {
 
         Player player;
-
-        player = new PlayerComputer();
-
         Random dice = new Random();
         int diveThrow, playerGuess;
 
-        player.setName("Kamil");
-
+        player = new PlayerComputer();
+        
+        try{
+        player.setName("HJhj");
+        }catch(IllegalArgumentException ex){
+            System.err.println("Nieprawidłowe imię: " + ex.getMessage());
+        }catch(NullPointerException ex){
+            System.err.println("Błąd: " + ex.getMessage());
+        }
+        
         do {
 
             diveThrow = dice.nextInt(6) + 1;
@@ -32,3 +37,4 @@ public class Game {
     }
 
 }
+//regex101
