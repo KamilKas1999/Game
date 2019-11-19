@@ -3,22 +3,15 @@ import java.util.Random;
 
 public class Game {
 
-    public static void main(String[] args) {
+    private Random dice = new Random();
+    private Player player;
 
-        Player player;
-        Random dice = new Random();
+    public void addPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void play() {
         int diveThrow, playerGuess;
-
-        player = new PlayerComputer();
-        
-        try{
-        player.setName("HJhj");
-        }catch(IllegalArgumentException ex){
-            System.err.println("Nieprawidłowe imię: " + ex.getMessage());
-        }catch(NullPointerException ex){
-            System.err.println("Błąd: " + ex.getMessage());
-        }
-        
         do {
 
             diveThrow = dice.nextInt(6) + 1;
@@ -37,4 +30,3 @@ public class Game {
     }
 
 }
-//regex101
