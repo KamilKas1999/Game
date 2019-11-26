@@ -1,32 +1,55 @@
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Game {
 
     private Random dice = new Random();
+    private List<Player> list = new ArrayList();
     private Player player;
 
     public void addPlayer(Player player) {
+        list.add(player);
         this.player = player;
+        for (int i = 0; i < list.size() - 1; i++) {
+           
+            if (this.player.getName() == list.get(0).getName()) {
+                System.out.println("Istnieje dwóch takich samych graczy");
+                this.player.setName(this.player.getName() + "1");
+            }
+        }
     }
 
     public void play() {
-        int diveThrow, playerGuess;
-        do {
 
+        System.out.println("Liczba graczy: " + list.size());
+        int diveThrow = 0;
+        int playerGuess = 0;
+        int round = 1;
+        boolean repeat;
+
+        System.out.println(list.size());
+        do {
+            System.out.println();
+            System.out.println("Runda " + round++);
+            repeat = true;
             diveThrow = dice.nextInt(6) + 1;
 
-            playerGuess = player.guess();
-
-            System.out.println("Wylosowana liczba: " + diveThrow + " Liczba gracza " + player.getName() + ": " + playerGuess);
-
-            if (diveThrow != playerGuess) {
-                System.out.println("Nie zgadłeś!");
+            for (Player player : list) {
+                playerGuess = player.guess();
+                System.out.println("Wylosowana liczba: " + diveThrow);
+                System.out.print(" Liczba gracza " + player.getName() + ": " + playerGuess);
+                if (diveThrow != playerGuess) {
+                    System.out.println("Nie zgadłeś!");
+                } else {
+                    System.out.println("Zgadłeś");
+                    repeat = false;
+                }
             }
+        } while (repeat);
 
-        } while (diveThrow != playerGuess);
-
-        System.out.println("Zgadłeś!");
     }
 
 }
+//list.get(0).getName()

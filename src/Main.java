@@ -1,14 +1,16 @@
 
 //import java.util.ArrayList;
 //import java.util.List;
-
-
 public class Main {
 
     public static void main(String[] args) {
 
         Game game = new Game();
-        Player player = new PlayerComputer();
+       // Player player = new PlayerComputer("Stefan");
+        game.addPlayer(new PlayerComputer("Stefan"));
+       // Player player2 = new PlayerComputer("Stefan");
+        game.addPlayer(new PlayerComputer("Stefan"));
+        game.play();
         
         /*
         List<String> list = new ArrayList();
@@ -35,8 +37,8 @@ public class Main {
         }
         
         
-        */
         
+       
 
         try {
             player.setName("Stefan");
@@ -45,9 +47,7 @@ public class Main {
         } catch (NullPointerException ex) {
             System.err.println("Błąd: " + ex.getMessage());
         }
-
-        game.addPlayer(player);
-        game.play();
+         */
 
     }
 
