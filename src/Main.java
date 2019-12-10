@@ -6,17 +6,16 @@ public class Main {
     public static void main(String[] args) {
 
         Game game = new Game();
+
         Player player = new PlayerComputer("Stefan");
         game.addPlayer(player);
+
         game.addPlayer(new PlayerComputer("Stefan"));
         game.addPlayer(new PlayerComputer("Mariola"));
-        game.showPlayer();
-        game.removePlayer(player);
-        game.showPlayer();
-        game.removePlayerByName("Mariola");
-        game.showPlayer();
-        game.play();
-
+        for (int i = 0; i < 100; i++) {
+            game.play();
+        }
+        game.printStats();
     }
 
 }
@@ -55,6 +54,7 @@ public class Main {
         } catch (NullPointerException ex) {
             System.err.println("Błąd: " + ex.getMessage());
         }
- */
+ 
 
 //regex101
+ */

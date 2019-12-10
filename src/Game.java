@@ -6,6 +6,7 @@ import java.util.Random;
 public class Game {
 
     private Random dice = new Random();
+    private Statistics stats = new Statistics();
     private List<Player> list = new ArrayList();
     private Player player;
 
@@ -32,12 +33,21 @@ public class Game {
                 list.remove(player);
             }
         }
-        //for(Player player : list){
+        //for(Player player : list){ nie działa nie bo nie działa
         // if(player.getName()==name){ 
         //   list.remove(player);
         // }
 
         // }
+        //for(Iterator<Player> it = players.iterator(); it.hasNext();{
+        //if (it.next().getName().equals(name)){
+        //  it.remove();
+        //}
+        //}
+        
+        
+        
+        //players.removeIf ((Player player) -> {return playet.getName().equals(name);}); wyrażenie lambda
     }
 
     public void showPlayer() {
@@ -71,11 +81,17 @@ public class Game {
                 } else {
                     System.out.println(" Zgadłeś");
                     repeat = false;
+                    stats.andTheWinnerIs(player);
                 }
             }
         } while (repeat);
 
     }
+    
+    public void printStats(){
+        stats.print();
+    }
+            
 
 }
 //list.get(0).getName()
